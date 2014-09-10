@@ -1,0 +1,71 @@
+Changes:
+
+V 1.363 (intermediate)
+	example: Added some missing .def files, added examples to makefile
+		Improved the output of openptys example
+	api, src: renamed XTY_WILLFORK to XTY_ENADUP ioctl, because this
+		  ioctl actually notifies the driver of an upcoming dup()/dup2(),
+		  which is a side effect of fork().
+	src:	Separated FIONBIO for ctrlr and slave (service for
+		  EMX emacs)
+
+V 1.362 (intermediate)
+	example: Added consel example
+		Added openptys example
+	bin:	removed
+	src:	Fixed a crash with select, select on console should also
+		  work now correctly together with select change in emx.dll
+		Added WILLFORK ioctl, allows open of master only if enabled
+		  with this ioctl first. Post this before a fork()
+		Now raises select semaphores if last slave is closed
+
+V 1.354 (1st public beta)
+	src:	FIONBIO now also influences reads
+		made ioctls somewhat safer, in that they now verify
+		  IOPLEN and IODLEN, if DosDevIOCtl2 is used
+		change assert_[rw]buf that they accept larger bufsizes
+		  than required, so may use on buf and sizeof(buf) in ioctl
+		added sending signals SIGINT and SIGBREAK
+		added simplified ICANON, ISIG, OPOST processing
+		added EOFMODE functionality (untested), allows sending
+		  signals on EOF and/or return CTRL-C/D/Z or return 0 bytes;
+		  default is 0 bytes and no sig
+
+V 1.331 (limited distribution)
+	src:	some changes in assembler proposed by Eberhard
+		  (not all: I knew why I did things this way :-)
+		added the PMAP_GETROM ioctl to pmap$ to remove requirement
+		  for testcfg.sys in SuperProbe
+		cleaned up some duplicate prototypes in ttypty.h/util.h
+		added version field in *_DRVID ioctl, now possible to
+		  verify the version of driver
+	api:	some changes in assembler proposed by Eberhard
+		fixed a bug in pt_ioctl example code
+
+V 1.323 (limited distribution)
+	src:	removed /dev/null
+		renamed /dev/console to console$, ptms to ptms$
+		fixed some bugs (thanks Eberhard)
+		built in *_NAME and *_DRVID interface into all drivers
+		renumbered CONS_OWNER ioctl
+		renamed XTY_NAME for ptms$ to PTMS_GETPTY
+		made all drivers return 0 bytes transferred on READ/WRITE,
+		  even if they don't support R/W, rather than RP_EBAD.
+		added FIONBIO for write
+		added semaphore mechanism for emulation of select()
+		improved console IDC (inter DD comminucation)
+		map$ and fastio$ now send a warning message to console$,
+		  that a process requested the additional features these
+		  devices offer
+	example:added IOEXAM1.C, IOEXAM2.C
+		added PTYEXAM1.C
+	bin:	added PTYCTL.C
+	api:	see also driver section
+		added io_init1()/io_exit1() and friends in gccio1.s
+		misc optical stuff in gccio.s
+		added console IDC API
+
+V 1.266 first version (limited distribution)
+	base functionality
+
+V <1.266 lost in the dark

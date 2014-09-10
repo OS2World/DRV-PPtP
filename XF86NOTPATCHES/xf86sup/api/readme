@@ -1,0 +1,14 @@
+The files *os2.h provide the `rawï interface to the driver and may be
+used with OS/2 Dos* routines directly.
+
+The files `map.hï, `pty.hï, and `cons.hï and the library `xf86api.aï
+provide an interface to access the driver functionality easier, and more
+Unix-like. This interface is compatible to emx0.9a, but should be adaptable
+without many problems to other 32 bit compilers.
+
+The files `conidc.hï and `conidc.asmï provide a write interface to the
+console$ device for device driver writers. It cannot be used by normal user
+applications. 
+
+
+Read the file ..\src\readme on usage issues.

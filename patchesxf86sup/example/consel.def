@@ -1,0 +1,4 @@
+NAME CONSEL WINDOWCOMPAT
+DESCRIPTION "Sample program to receive /dev/console data (select)"
+PROTMODE
+EXETYPE OS2

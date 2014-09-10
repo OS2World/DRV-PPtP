@@ -1,0 +1,22 @@
+This PPtP driver for OS/2 is freeware. Nobody is making a profit with 
+this software. Christoph Theis (theis@aon.at) from Austria ported this software
+from Linux and created a modified version of xf86sup.sys. 
+He can not be held responsible for any kind of direct or indirect damage
+that you get by using this software. I (Roderick Klein) distribute 
+this software via my website and can also not be held responsible 
+for any damages. 
+
+To state it even simpler: You use this software completely at your own risk!!!
+
+Now for some people which are afraid this software will "blow" up there 
+computer. Is has been tested with succes and people have encountered 
+no crashes.
+
+But still you use it at your own risk!
+
+The Linux sources where released under GNU GENERAL PUBLIC LICENSE 
+(see the file "copying" in the directory pptplinuxos2port for details).
+So this software is also covered by the GNU license.
+
+
+

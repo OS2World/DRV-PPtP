@@ -1,0 +1,4 @@
+NAME CONSVR WINDOWCOMPAT
+DESCRIPTION "Sample program to receive /dev/console data"
+PROTMODE
+EXETYPE OS2

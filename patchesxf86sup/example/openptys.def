@@ -1,0 +1,4 @@
+NAME OPENPTYS WINDOWCOMPAT
+DESCRIPTION "Sample program to demonstrate mthods to open PTYs"
+PROTMODE
+EXETYPE OS2

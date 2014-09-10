@@ -1,0 +1,4 @@
+NAME CONEXAM WINDOWCOMPAT
+DESCRIPTION "Sample program to send /dev/console data"
+PROTMODE
+EXETYPE OS2

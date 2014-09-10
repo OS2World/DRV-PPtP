@@ -1,0 +1,29 @@
+proc->stdout:
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³     PPP     ³ OS/2 TCP/IP Point-to-Point Protocol-Treiber
+³    2.00     ³ Copyright(c) IBM Corp. 1994, 1995
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÙ Revision: 1.18   06 June 1996 00:00:00
+
+notice : OS/2 ppp 2.00 Revision: 1.18 von OS/2 gestartet, Prozeá-ID 62
+info   : Using interface ppp0
+info   : Setting line characteristics
+info   : Setting com port baud rate to 0
+notice : Linking: ppp0 <--> ttyp0
+
+proc->stdout:
+~ÿ}#À!}!}!} }8}!}$}%Ü}"}&} } } } }%}&GÑ _}'}"}(}"º}"~
+proc->stdout:
+~ÿ}#À!}!}!} }8}!}$}%Ü}"}&} } } } }%}&GÑ _}'}"}(}"º}"~
+proc->stdout:
+~ÿ}#À!}!}!} }8}!}$}%Ü}"}&} } } } }%}&GÑ _}'}"}(}"º}"~
+proc->stdout:
+~ÿ}#À!}!}!} }8}!}$}%Ü}"}&} } } } }%}&GÑ _}'}"}(}"º}"~
+proc->stdout:
+~ÿ}#À!}!}!} }8}!}$}%Ü}"}&} } } } }%}&GÑ _}'}"}(}"º}"~
+proc->stdout:
+info   : Terminating link.
+
+proc->stdout:
+
+Exiting...
+

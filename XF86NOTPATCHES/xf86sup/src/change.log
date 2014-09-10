@@ -1,0 +1,125 @@
+Changes:
+
+V 1.511 (source released for XFree86-3.3.5)
+	src:    Seems the problem with Aurora is finally fixed. VMAlloc
+		produces a DPL3 selector when called from init. Patching the
+		GDT won't work here because Init is called in R3 (exception
+		in DOSCALL1). Moved the tty buffer creation and init to 
+		*_open routines (ttybuf_initr0) to get working R0 selectors.
+
+V 1.496 src:	Removed check for FP17. Warning: will crash the system if 
+		you don't have Warp3 FP17 or later!
+		Attempt to fix problem with Aurora
+
+V 1.484 (source released for XFree86/OS2-3.2)
+	src:	Fix for the xterm junk character problem
+		Some history changes
+
+V 1.44? (binary released as fix for XFree86-3.1.2E)
+	src:	Added function to call DevHlp_KillProc to FASTIO$ call gate
+
+V 1.440 (intermediate)
+	src:	Fixed bug with ICRNL
+
+V 1.437 (intermediate)
+	src:	Disabled sendsig, because signalling is bogus in OS/2, can
+		  cause unexpected shutdown of X, when CTRL-C used in xterm.
+		Added history functions
+		Added ESC?{H,L,T,C} debug functions.
+
+V 1.420 (binary released with XFree86-3.1.2D)
+	src:	Fixed a problem with not setting tp->ocol properly
+		Fixed problem with invalid RWCNT in NDELAY mode
+		Added PTY TRACE mode via /dev/console$ (XTY_TRACE ioctl)
+		Protected the private header files with #ifdefs
+		Protected CONIDC entry point with a mutex semaphore to avoid
+		  multiple writers at a time
+		Copy CONIDC buffer into a local variable to prevent data
+		  from going away before being processed
+		Implemented IGNCR, ICRNL, INLCR because xterm needs them
+		Finally removed the BSD copyright message, because code
+		  has no longer any resemblance with original code
+		Added line buffering for ICANON mode
+		Added line editing extensions in ICANON mode
+	root:	Corrected the message in xf86sup.ddp
+	example: Added a DosSleep to prevent consvr from grabbing entire CPU
+		Added a trace option arg (-T) to ptyexam and added appropriate
+		  ioctl
+		consvr.exe will now save received messages in a file, given
+		  by argv[1], if argument is present
+		Corrected a few typos in ioexam.c and ioexam1.c
+	api:	Fixed a bug in a_in[bwl] functions (too much LEAVE)
+		Provided function libraries for ICC, BCC, WCC, reorganized
+		  structure
+		Changed Makefiles to use ALP instead of MASM
+
+V 1.364 (public)
+	example: Added some missing .def files, added examples to makefile
+		Improved the output of openptys example
+	api, src: renamed XTY_WILLFORK to XTY_ENADUP ioctl, because this
+		  ioctl actually notifies the driver of an upcoming dup()/dup2(),
+		  which is a side effect of fork().
+	src:	Separated FIONBIO for ctrlr and slave (service for
+		  EMX emacs)
+
+V 1.362 (intermediate)
+	example: Added consel example
+		Added openptys example
+	bin:	removed
+	src:	Fixed a crash with select, select on console should also
+		  work now correctly together with select change in emx.dll
+		Added WILLFORK ioctl, allows open of master only if enabled
+		  with this ioctl first. Post this before a fork()
+		Now raises select semaphores if last slave is closed
+
+V 1.354 (1st public beta)
+	src:	FIONBIO now also influences reads
+		made ioctls somewhat safer, in that they now verify
+		  IOPLEN and IODLEN, if DosDevIOCtl2 is used
+		change assert_[rw]buf that they accept larger bufsizes
+		  than required, so may use on buf and sizeof(buf) in ioctl
+		added sending signals SIGINT and SIGBREAK
+		added simplified ICANON, ISIG, OPOST processing
+		added EOFMODE functionality (untested), allows sending
+		  signals on EOF and/or return CTRL-C/D/Z or return 0 bytes;
+		  default is 0 bytes and no sig
+
+V 1.331 (limited distribution)
+	src:	some changes in assembler proposed by Eberhard
+		  (not all: I knew why I did things this way :-)
+		added the PMAP_GETROM ioctl to pmap$ to remove requirement
+		  for testcfg.sys in SuperProbe
+		cleaned up some duplicate prototypes in ttypty.h/util.h
+		added version field in *_DRVID ioctl, now possible to
+		  verify the version of driver
+	api:	some changes in assembler proposed by Eberhard
+		fixed a bug in pt_ioctl example code
+
+V 1.323 (limited distribution)
+	src:	removed /dev/null
+		renamed /dev/console to console$, ptms to ptms$
+		fixed some bugs (thanks Eberhard)
+		built in *_NAME and *_DRVID interface into all drivers
+		renumbered CONS_OWNER ioctl
+		renamed XTY_NAME for ptms$ to PTMS_GETPTY
+		made all drivers return 0 bytes transferred on READ/WRITE,
+		  even if they don't support R/W, rather than RP_EBAD.
+		added FIONBIO for write
+		added semaphore mechanism for emulation of select()
+		improved console IDC (inter DD comminucation)
+		map$ and fastio$ now send a warning message to console$,
+		  that a process requested the additional features these
+		  devices offer
+	example:added IOEXAM1.C, IOEXAM2.C
+		added PTYEXAM1.C
+	bin:	added PTYCTL.C
+	api:	see also driver section
+		added io_init1()/io_exit1() and friends in gccio1.s
+		misc optical stuff in gccio.s
+		added console IDC API
+
+V 1.266 first version (limited distribution)
+	base functionality
+
+V <1.266 lost in the dark
+
